@@ -1,0 +1,2 @@
+To navigate to the home and login pages 
+of a web application with the help of Routing.

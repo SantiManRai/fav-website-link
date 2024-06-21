@@ -1,0 +1,148 @@
+1. Open terminal on the folder where you want to created:
+
+cmd
+
+2. Create a Project folder with no standalone to get app.module.ts:
+
+ng new fav-website-link --no-standalone
+
+3. Run the angular and Open:
+
+ng serve --open
+
+4. Go to the folder and open with VS Code:
+
+or from command Prompts: code .
+
+5. Delete all the code and write to test in app.component.html:
+
+<p>Hello from app</p>
+<router-outlet />
+
+6. Check in index.html if not add:
+ <base href="/">
+
+7. Check in app.routes.ts AppRoutingModule is imported:
+
+import { AppRoutingModule } from './app-routing.module';
+imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+
+8. Create three components  navbar, home and login using VS Code terminal:
+
+Ctrl + `
+ng g c navbar
+ng g c home
+ng g c login
+
+9. Close the selectors of every .ts file in app.component.html and check it whether or not working:
+
+<p>Hello from app</p>
+<router-outlet />
+<app-navbar/>
+<app-home/>
+<app-login/>
+
+10. Copy the code of navbar.component.html  and styles.css from website-copy, then paste in here.
+Add Login in navbar:
+
+ <!-- Responsive navbar-->
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-5">
+        <a  class="navbar-brand" href="#!">Fast Track My Favorite Website</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+11. Copy the both code html and css for login component from:
+
+https://mdbootstrap.com/docs/standard/extended/login/#!
+
+12. Copy all the code from 
+navbar.component.html, info.component.html, favwebsite.component.html and footer.component.html previous Project
+and paste in home.component.html:
+
+13. Create a path of login and home  in app-routing.module.ts:
+
+Previous:
+
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+Path:
+
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+
+const routes: Routes = 
+[
+  {path: 'login', component: LoginComponent},
+  {path:'home', component: HomeComponent}
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+14. Create two navigation tag in navbar.component.html for home and login:
+
+  <nav>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+               </nav> 
+                <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Services</a></li>
+                <nav>
+                <li class="nav-item"><a class="nav-link" href="#!">Login</a></li>
+                </nav>
+
+15. Change routing in the page in navbar.component.html:
+
+
+   <li class="nav-item active">
+                    <nav>
+                    <a class="nav-link" href="#!" routerLink="/home"  routerLinkActive="active">Home</a>
+                </nav> 
+                </li>
+              
+                <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Services</a></li>
+               
+                <li class="nav-item active">
+                    <nav>
+                    <a class="nav-link" href="#!" routerLink="/login"  routerLinkActive="active">Login</a>
+                </nav> 
+                </li>
+
+16. Close the routing director in app.component.hml:
+
+<app-navbar/>
+<router-outlet />
+
+17. Install the package  if wanna more change:
+
+npm install -g mdb-cli
